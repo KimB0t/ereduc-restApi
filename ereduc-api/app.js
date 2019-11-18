@@ -11,9 +11,13 @@ app.use(cors());
 
 //import routes
 const postsRoute = require('./routes/posts');
+const bonPlansRoute = require('./routes/bonPlans');
+const usersRoute = require('./routes/users');
 
 //Middlewares
 app.use('/posts', postsRoute);
+app.use('/bonPlans', bonPlansRoute);
+app.use('/users', usersRoute);
 
 //Routes
 app.get('/', (req, res) => {
