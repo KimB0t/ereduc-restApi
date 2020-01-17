@@ -18,7 +18,10 @@ router.post('/', async (req, res) => {
     const bonPlan = new BonPlan({
         title: req.body.title,
         desc: req.body.desc,
-        categorie: req.body.categorie
+        categorie: req.body.categorie,
+        d_debut: req.body.d_debut,
+        d_fin: req.body.d_fin,
+        url_img: req.body.url_img
     });
     
     try{
@@ -57,10 +60,14 @@ router.patch('/:bonPlanId', async (req, res) => {
     try{
         const updatedBonPlan = await BonPlan.updateOne(
             {_id: req.params.bonPlanId}, 
-            { $set: { 
-                title: req.body.title,
-                desc: req.body.desc,
-                categorie: req.body.categorie } }
+				{ $set: { 
+					title: req.body.title,
+					desc: req.body.desc,
+					categorie: req.body.categorie,
+					d_debut: req.body.d_debut,
+					d_fin: req.body.d_fin,
+					url_img: req.body.url_img } 
+				}
             );
         res.json(updatedBonPlan);
     }
